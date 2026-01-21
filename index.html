@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заработок в интернете - полезные инструменты и возможности</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #f39c12;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #f39c12;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Main Content */
+        .content-section {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            gap: 30px;
+        }
+        
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f39c12;
+        }
+        
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tool {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+        
+        .tool i {
+            font-size: 36px;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .tool h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-success {
+            background-color: #2ecc71;
+        }
+        
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+        
+        .btn-warning {
+            background-color: #f39c12;
+        }
+        
+        .btn-warning:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Advertisement Section */
+        .ad-container {
+            background-color: #fff8e1;
+            border: 2px dashed #f39c12;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .ad-label {
+            display: inline-block;
+            background-color: #f39c12;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        /* Affiliate Section */
+        .affiliate-offers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .offer {
+            flex: 1;
+            min-width: 250px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border-top: 5px solid #2ecc71;
+        }
+        
+        .offer h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .offer .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin: 15px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ecf0f1;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #f39c12;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 14px;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #7f8c8d;
+        }
+        
+        .modal h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 25px;
+                right: 20px;
+            }
+            
+            .mobile-menu {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .mobile-menu ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .mobile-menu ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                ProfitSite
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="desktop-menu">
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#tools"><i class="fas fa-tools"></i> Инструменты</a></li>
+                    <li><a href="#offers"><i class="fas fa-gift"></i> Предложения</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> О нас</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Контакты</a></li>
+                </ul>
+            </nav>
+            <nav class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#tools"><i class="fas fa-tools"></i> Инструменты</a></li>
+                    <li><a href="#offers"><i class="fas fa-gift"></i> Предложения</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> О нас</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Зарабатывайте в интернете с нашими инструментами</h1>
+            <p>Мы собрали лучшие способы монетизации, партнерские программы и инструменты для увеличения вашего дохода. Начните прямо сейчас!</p>
+            <button class="cta-button" id="startEarningBtn">Начать зарабатывать</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container content-section">
+        <div class="main-content">
+            <!-- Tools Section -->
+            <div class="card" id="tools">
+                <h2><i class="fas fa-tools"></i> Полезные инструменты для заработка</h2>
+                <p>Используйте эти инструменты для увеличения вашего дохода в интернете. Каждый инструмент имеет свою специализацию и поможет в разных аспектах онлайн-заработка.</p>
+                
+                <div class="tools-grid">
+                    <div class="tool">
+                        <i class="fas fa-search-dollar"></i>
+                        <h3>Анализ ключевых слов</h3>
+                        <p>Подбор высокочастотных запросов для SEO оптимизации</p>
+                        <button class="btn btn-use-tool" data-tool="keyword">Использовать</button>
+                    </div>
+                    <div class="tool">
+                        <i class="fas fa-ad"></i>
+                        <h3>Генератор рекламных текстов</h3>
+                        <p>Создание продающих текстов для рекламных объявлений</p>
+                        <button class="btn btn-success btn-use-tool" data-tool="adtext">Использовать</button>
+                    </div>
+                    <div class="tool">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Анализ трафика</h3>
+                        <p>Отслеживание источников и поведения посетителей</p>
+                        <button class="btn btn-warning btn-use-tool" data-tool="traffic">Использовать</button>
+                    </div>
+                    <div class="tool">
+                        <i class="fas fa-link"></i>
+                        <h3>Партнерские ссылки</h3>
+                        <p>Генератор и сокращение партнерских ссылок</p>
+                        <button class="btn btn-use-tool" data-tool="affiliate">Использовать</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advertisement Section -->
+            <div class="ad-container">
+                <span class="ad-label">Реклама</span>
+                <h3>Зарабатывайте на своем сайте с помощью медийной рекламы!</h3>
+                <p>Подключите рекламную сеть и получайте доход за показы и клики по рекламе на вашем сайте.</p>
+                <button class="btn btn-warning" id="learnMoreAd">Узнать больше</button>
+            </div>
+            
+            <!-- Affiliate Offers -->
+            <div class="card" id="offers">
+                <h2><i class="fas fa-gift"></i> Партнерские предложения</h2>
+                <p>Рекомендуйте эти услуги и получайте до 30% комиссии с каждой продажи. Все предложения проверены и имеют высокие конверсии.</p>
+                
+                <div class="affiliate-offers">
+                    <div class="offer">
+                        <h3>Курс по интернет-маркетингу</h3>
+                        <p>Научитесь зарабатывать от $500 в месяц на партнерских программах</p>
+                        <div class="price">$49</div>
+                        <p>Ваша комиссия: <strong>$14.70</strong></p>
+                        <button class="btn btn-success btn-offer" data-offer="course">Рекомендовать</button>
+                    </div>
+                    <div class="offer">
+                        <h3>Хостинг для сайтов</h3>
+                        <p>Надежный хостинг с 99.9% аптаймом и техподдержкой 24/7</p>
+                        <div class="price">$8.99/мес</div>
+                        <p>Ваша комиссия: <strong>$2.70/мес</strong></p>
+                        <button class="btn btn-success btn-offer" data-offer="hosting">Рекомендовать</button>
+                    </div>
+                    <div class="offer">
+                        <h3>Конструктор сайтов</h3>
+                        <p>Создайте сайт без программирования за 1 день</p>
+                        <div class="price">$12/мес</div>
+                        <p>Ваша комиссия: <strong>$3.60/мес</strong></p>
+                        <button class="btn btn-success btn-offer" data-offer="builder">Рекомендовать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Ad Space 1 -->
+            <div class="card">
+                <h3><i class="fas fa-bullhorn"></i> Рекламный блок</h3>
+                <p>Здесь может быть ваша реклама. Разместите баннер или текстовое объявление.</p>
+                <div class="ad-placeholder" style="background-color: #f8f9fa; height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin: 15px 0; border: 2px dashed #ccc;">
+                    <p>Рекламный баннер 300x250</p>
+                </div>
+                <button class="btn" id="placeAdBtn">Разместить рекламу</button>
+            </div>
+            
+            <!-- Statistics -->
+            <div class="card">
+                <h3><i class="fas fa-chart-bar"></i> Статистика заработка</h3>
+                <p>Текущий месяц:</p>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
+                        <span>Реклама:</span>
+                        <strong style="float: right; color: #2ecc71;">$124.50</strong>
+                    </li>
+                    <li style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
+                        <span>Партнерские программы:</span>
+                        <strong style="float: right; color: #3498db;">$87.30</strong>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <span>Всего:</span>
+                        <strong style="float: right; color: #f39c12;">$211.80</strong>
+                    </li>
+                </ul>
+                <button class="btn btn-warning" id="withdrawBtn">Вывести средства</button>
+            </div>
+            
+            <!-- Ad Space 2 -->
+            <div class="card">
+                <h3><i class="fas fa-star"></i> Рекомендуем</h3>
+                <p>Лучший способ начать зарабатывать - партнерская программа Amazon.</p>
+                <div style="background-color: #ff9900; color: white; padding: 15px; border-radius: 8px; text-align: center; margin: 15px 0;">
+                    <strong>До 10% комиссии с каждой продажи!</strong>
+                </div>
+                <button class="btn btn-success" id="amazonBtn">Присоединиться</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ProfitSite</h3>
+                    <p>Мы помогаем людям зарабатывать в интернете с помощью проверенных методов и инструментов.</p>
+                    <p>Наш опыт - ваша прибыль!</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-envelope"></i> info@profitsite.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Примерная, 10</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Полезные ссылки</h3>
+                    <a href="#privacy">Политика конфиденциальности</a>
+                    <a href="#terms">Условия использования</a>
+                    <a href="#faq">Частые вопросы</a>
+                    <a href="#partners">Для партнеров</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ProfitSite. Все права защищены. Данный сайт является примером для обучения.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="toolModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeToolModal">&times;</span>
+            <h2 id="modalToolTitle">Инструмент</h2>
+            <div id="modalToolContent">
+                <p>Контент инструмента загружается...</p>
+            </div>
+            <button class="btn btn-warning" style="margin-top: 20px;" id="closeToolBtn">Закрыть</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="offerModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeOfferModal">&times;</span>
+            <h2 id="modalOfferTitle">Партнерское предложение</h2>
+            <div id="modalOfferContent">
+                <p>Информация о предложении загружается...</p>
+            </div>
+            <button class="btn btn-success" style="margin-top: 20px;" id="acceptOfferBtn">Принять предложение</button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const startEarningBtn = document.getElementById('startEarningBtn');
+        const toolButtons = document.querySelectorAll('.btn-use-tool');
+        const offerButtons = document.querySelectorAll('.btn-offer');
+        const toolModal = document.getElementById('toolModal');
+        const offerModal = document.getElementById('offerModal');
+        const closeToolModal = document.getElementById('closeToolModal');
+        const closeOfferModal = document.getElementById('closeOfferModal');
+        const closeToolBtn = document.getElementById('closeToolBtn');
+        const acceptOfferBtn = document.getElementById('acceptOfferBtn');
+        const learnMoreAdBtn = document.getElementById('learnMoreAd');
+        const placeAdBtn = document.getElementById('placeAdBtn');
+        const withdrawBtn = document.getElementById('withdrawBtn');
+        const amazonBtn = document.getElementById('amazonBtn');
+        
+        // Tool content data
+        const toolContent = {
+            keyword: {
+                title: "Анализ ключевых слов",
+                content: "<p>Этот инструмент помогает находить популярные поисковые запросы в вашей нише. Введите основное ключевое слово, и вы получите список связанных запросов с частотностью.</p><p><strong>Как использовать:</strong></p><ol><li>Введите ключевое слово в поле ниже</li><li>Выберите регион и язык</li><li>Нажмите 'Анализировать'</li></ol><div style='margin-top: 20px;'><input type='text' placeholder='Введите ключевое слово' style='width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px;'><button class='btn' style='width: 100%;'>Анализировать</button></div>"
+            },
+            adtext: {
+                title: "Генератор рекламных текстов",
+                content: "<p>Создавайте продающие тексты для рекламы в соцсетях и поисковых системах. Укажите основные преимущества вашего продукта, и инструмент создаст несколько вариантов текстов.</p><p><strong>Параметры:</strong></p><div style='margin-top: 20px;'><textarea placeholder='Опишите ваш продукт или услугу...' style='width: 100%; height: 120px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px;'></textarea><button class='btn btn-success' style='width: 100%;'>Сгенерировать тексты</button></div>"
+            },
+            traffic: {
+                title: "Анализ трафика",
+                content: "<p>Отслеживайте источники трафика на ваш сайт, поведение пользователей и конверсии. Этот инструмент поможет оптимизировать ваш сайт для увеличения доходов.</p><p><strong>Доступные метрики:</strong></p><ul><li>Источники трафика (поиск, соцсети, рефералы)</li><li>Время на сайте и глубина просмотра</li><li>Конверсии по страницам</li><li>География посетителей</li></ul><button class='btn btn-warning' style='margin-top: 20px; width: 100%;'>Подключить анализ</button>"
+            },
+            affiliate: {
+                title: "Партнерские ссылки",
+                content: "<p>Создавайте, управляйте и отслеживайте партнерские ссылки. Получайте статистику по кликам и конверсиям в реальном времени.</p><p><strong>Вставьте вашу партнерскую ссылку:</strong></p><div style='margin-top: 20px;'><input type='text' placeholder='https://example.com/partner-link' style='width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px;'><button class='btn' style='width: 100%;'>Создать короткую ссылку</button></div><p style='margin-top: 15px; font-size: 14px;'>Короткая ссылка будет отслеживать клики и конверсии.</p>"
+            }
+        };
+        
+        // Offer content data
+        const offerContent = {
+            course: {
+                title: "Курс по интернет-маркетингу",
+                content: "<p>Рекомендуйте этот курс и получайте 30% комиссии с каждой продажи. Курс включает:</p><ul><li>10 модулей по партнерскому маркетингу</li><li>Личный кабинет с отслеживанием продаж</li><li>Поддержку от опытных маркетологов</li><li>Доступ к закрытому сообществу</li></ul><p>Стоимость курса: <strong>$49</strong></p><p>Ваша комиссия за каждую продажу: <strong style='color: #2ecc71;'>$14.70</strong></p>"
+            },
+            hosting: {
+                title: "Хостинг для сайтов",
+                content: "<p>Партнерская программа хостинг-провайдера с ежемесячными выплатами. За каждого привлеченного клиента вы получаете 30% от его ежемесячного платежа.</p><ul><li>Надежный хостинг с 99.9% аптаймом</li><li>Техподдержка 24/7</li><li>Бесплатный SSL-сертификат</li><li>Автоматические бэкапы</li></ul><p>Стоимость: <strong>$8.99/месяц</strong></p><p>Ваша ежемесячная комиссия: <strong style='color: #2ecc71;'>$2.70/месяц</strong></p>"
+            },
+            builder: {
+                title: "Конструктор сайтов",
+                content: "<p>Конструктор сайтов с визуальным редактором. Партнерская программа предлагает 30% комиссии с каждого платежа привлеченного клиента.</p><ul><li>Создание сайтов без программирования</li><li>Готовые шаблоны для разных ниш</li><li>Мобильная адаптация</li><li>SEO-инструменты</li></ul><p>Стоимость: <strong>$12/месяц</strong></p><p>Ваша ежемесячная комиссия: <strong style='color: #2ecc71;'>$3.60/месяц</strong></p>"
+            }
+        };
+        
+        // Event Listeners
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        startEarningBtn.addEventListener('click', () => {
+            alert('Чтобы начать зарабатывать, зарегистрируйтесь в партнерских программах, разместите рекламу на своем сайте и используйте инструменты для оптимизации доходов!');
+        });
+        
+        // Tool buttons
+        toolButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tool = button.getAttribute('data-tool');
+                document.getElementById('modalToolTitle').textContent = toolContent[tool].title;
+                document.getElementById('modalToolContent').innerHTML = toolContent[tool].content;
+                toolModal.style.display = 'flex';
+            });
+        });
+        
+        // Offer buttons
+        offerButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const offer = button.getAttribute('data-offer');
+                document.getElementById('modalOfferTitle').textContent = offerContent[offer].title;
+                document.getElementById('modalOfferContent').innerHTML = offerContent[offer].content;
+                offerModal.style.display = 'flex';
+            });
+        });
+        
+        // Close modals
+        closeToolModal.addEventListener('click', () => {
+            toolModal.style.display = 'none';
+        });
+        
+        closeOfferModal.addEventListener('click', () => {
+            offerModal.style.display = 'none';
+        });
+        
+        closeToolBtn.addEventListener('click', () => {
+            toolModal.style.display = 'none';
+        });
+        
+        acceptOfferBtn.addEventListener('click', () => {
+            alert('Поздравляем! Вы стали партнером. Проверьте свою почту для получения дальнейших инструкций.');
+            offerModal.style.display = 'none';
+        });
+        
+        // Other buttons
+        learnMoreAdBtn.addEventListener('click', () => {
+            alert('Чтобы подключить медийную рекламу, зарегистрируйтесь в Google AdSense, Yandex Direct или других рекламных сетях. Разместите рекламный код на своем сайте и начните получать доход за показы и клики.');
+        });
+        
+        placeAdBtn.addEventListener('click', () => {
+            alert('Для размещения рекламы на нашем сайте свяжитесь с нами по email: ads@profitsite.com');
+        });
+        
+        withdrawBtn.addEventListener('click', () => {
+            alert('Для вывода средств необходимо набрать минимальную сумму $50. Перейдите в раздел "Финансы" в вашем личном кабинете.');
+        });
+        
+        amazonBtn.addEventListener('click', () => {
+            alert('Вы будете перенаправлены на сайт партнерской программы Amazon. Зарегистрируйтесь и начните зарабатывать, рекомендуя товары с Amazon.');
+            // В реальном сайте здесь был бы переход по ссылке
+            // window.open('https://affiliate-program.amazon.com/', '_blank');
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === toolModal) {
+                toolModal.style.display = 'none';
+            }
+            if (e.target === offerModal) {
+                offerModal.style.display = 'none';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
